@@ -6,7 +6,7 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
 
@@ -28,46 +28,72 @@
   <div class="container">
 
     <div ng-controller="mainCtrl">
+      <div ng-repeat="detail in eventDetails">
+        <h1>{{detail.eventname}}</h1>
+        <h5>{{detail.datestring}}</h2>
+        <h5>{{detail.location}}</h2>
+      </div>
 
-      <div>
+      <hr/>
 
-        <label>Add dish:</label>
-        <input type="text" ng-model="addfood" placeholder="food"/>
-        <input type="text" ng-model="addchef" placeholder="chef"/>
-        <p>
-        <input type="checkbox" ng-model="course"> Appetizer</input>
-        <input type="checkbox" ng-model="course"> Main</input>
-        <input type="checkbox" ng-model="course"> Dessert</input>
-        <input type="checkbox" ng-model="course"> Libations</input>
-        <p><input type="button" value="submit">
+      <div class="row">
 
-        <hr/>
-
-        <h3><strong>Menu<strong></h3>
+        <div class="col-xs-12 col-md-6">
+          <h3><strong>Menu<strong></h3>
 
           <h5>
             Sort by: <a href="#">Chef</a> | <a href="#">Food</a> | <a href="#">Course</a>
-
           </h5>
+          <h4>Main Course</h4>
+          <ul ng-repeat="food in foods" ng-show="food.course === 'dinner'">
+            <li>{{food.foodname}} - {{food.chef}}
+              <a href="#"> <i class="fa fa-pencil"></i></a>
+            </li>
+          </ul>
 
-        <h4>Main Course</h4>
+          <h4>Libations</h4>
+          <ul ng-repeat="food in foods" ng-show="food.course === 'libations'">
+            <li>{{food.foodname}} - {{food.chef}}
+              <a href="#"> <i class="fa fa-pencil"></i></a>
+            </li>
+          </ul>
 
-        <ul>
-          <li ng-repeat="food in foods">{{food.foodname}} - {{food.chef}}
-            <a href="#"> <i class="fa fa-pencil"></i></a>
-          </li>
-        </ul>
+          <h4>Appetizers</h4>
+          <ul ng-repeat="food in foods" ng-show="food.course === 'appetizers'">
+            <li>{{food.foodname}} - {{food.chef}}
+              <a href="#"> <i class="fa fa-pencil"></i></a>
+            </li>
+          </ul>
 
+          <h4>Dessert</h4>
+          <ul ng-repeat="food in foods" ng-show="food.course === 'desserts'">
+            <li>{{food.foodname}} - {{food.chef}}
+              <a href="#"> <i class="fa fa-pencil"></i></a>
+            </li>
+          </ul>
+        </div> <!-- Menu -->
 
-      </div>
+        <div class="col-xs-6 col-md-6 add-menu">
 
+          <h4>Add to menu:</h4>
+            <p><input type="text" ng-model="foods.foodname" placeholder="food"/></p>
+            <p><input type="text" ng-model="foods.chef" placeholder="chef"/></p>
+            <input type="checkbox" ng-model="foods.course"> Appetizer </input>
+            <input type="checkbox" ng-model="foods.course"> Main </input>
+            <input type="checkbox" ng-model="foods.course"> Dessert </input>
+            <input type="checkbox" ng-model="foods.course"> Libations </input>
 
+          <p><input type="button" value="submit" id="submit">
 
-    </div>
+        </div> <!-- Add Dish -->
+
+      </div> <!-- food ROW -->
+
+    </div> <!-- mainCtrl -->
 
   </div>
 
   <script src="https://code.angularjs.org/1.5.3/angular.min.js"></script>
-  <script src="app.js"></script>
+  <script src="scripts/app.js"></script>
 </body>
 </html>
