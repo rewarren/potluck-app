@@ -19,7 +19,8 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="#"><i class="fa fa-home"></i> Schedule</a></li>
+        <li><a href="#"><i class="fa fa-home"></i> Create New Event</a></li>
+        <li><a href="#">Log Out</a></li>
       </ul>
     </div>
     </nav>
@@ -37,8 +38,8 @@
       <hr/>
 
       <div class="row">
-
         <div class="col-xs-12 col-md-6">
+          <div class="menu">
           <h3><strong>Menu<strong></h3>
 
           <h5>
@@ -71,21 +72,40 @@
               <a href="#"> <i class="fa fa-pencil"></i></a>
             </li>
           </ul>
-        </div> <!-- Menu -->
+        </div><!-- Menu -->
+      </div> <!-- Left Column -->
 
-        <div class="col-xs-6 col-md-6 add-menu">
+        <div class="col-xs-12 col-md-6">
 
-          <h4>Add to menu:</h4>
-            <p><input type="text" ng-model="foods.foodname" placeholder="food"/></p>
-            <p><input type="text" ng-model="foods.chef" placeholder="chef"/></p>
-            <input type="checkbox" ng-model="foods.course"> Appetizer </input>
-            <input type="checkbox" ng-model="foods.course"> Main </input>
-            <input type="checkbox" ng-model="foods.course"> Dessert </input>
-            <input type="checkbox" ng-model="foods.course"> Libations </input>
+        <form>
+          <div class="form-group menu-form">
+            <h4>Add to menu:</h4>
+            <input type="text" ng-model="foods.foodname" placeholder="food" class="form-control"/>
+            <input type="text" ng-model="foods.chef" placeholder="chef" class="form-control"/>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="foods.course">Appetizer </input>
+              </label>
+              <label>
+                <input type="checkbox" ng-model="foods.course">Main </input>
+              </label>
+              <label>
+                <input type="checkbox" ng-model="foods.course">Dessert </input>
+              </label>
+              <label>
+                <input type="checkbox" ng-model="foods.course">Libations </input>
+              </label>
+            </div>
+           <button type="submit" class="btn btn-default">Submit</button>
+          </div> <!-- Menu Form -->
+        </form>
 
-          <p><input type="button" value="submit" id="submit">
+        <div class="note">
+          <h4>Leave a note!</h4>
 
-        </div> <!-- Add Dish -->
+        </div>
+
+      </div> <!-- Right Column -->
 
       </div> <!-- food ROW -->
 
