@@ -11,7 +11,7 @@ potluckApp.controller('mainCtrl', ['$scope', '$filter', function($scope, $filter
 
   $scope.characters = 3;
 
-  $scope.foods = [
+$scope.foods = [
     { foodname: 'Turkey',
       chef: 'Charles',
       course: 'dinner'
@@ -50,8 +50,9 @@ potluckApp.controller('mainCtrl', ['$scope', '$filter', function($scope, $filter
     },
     { foodname: 'Raw veggies',
       chef: 'Cheryl',
-      course: 'Appetizers'
+      course: 'appetizers'
     }
   ];
+
 
 }]);
