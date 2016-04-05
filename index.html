@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="potluckApp">
 <head>
   <meta charset="UTF-8">
   <title>Potluck App</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -23,7 +24,40 @@
   </header>
 
   <div class="container">
-    <h1>hello world!</h1>
+
+    <div ng-controller="mainCtrl">
+
+      <div>
+
+        <label>Add dish:</label>
+        <input type="text" ng-model="addfood" placeholder="food"/>
+        <input type="text" ng-model="chef" placeholder="chef"/>
+        <p>
+        <input type="checkbox" ng-model="course"> Appetizer</input>
+        <input type="checkbox" ng-model="course"> Main</input>
+        <input type="checkbox" ng-model="course"> Dessert</input>
+        <input type="checkbox" ng-model="course"> Libations</input>
+        <p><input type="button" value="submit">
+
+        <hr/>
+
+        <h3><strong>Menu<strong></h3>
+
+          <h5>
+            Sort by: <a href="#">Chef</a> | <a href="#">Food</a> | <a href="#">Course</a>
+
+          </h5>
+        <h4>Main Course</h4>
+
+        <ul>
+          <li ng-repeat="food in foods">{{food.foodname}} - {{food.chef}} <a href="#">(edit)</a></li>
+        </ul>
+
+      </div>
+
+
+
+    </div>
 
   </div>
 
