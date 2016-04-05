@@ -3,54 +3,60 @@ var potluckApp = angular.module('potluckApp', []);
 
 potluckApp.controller('mainCtrl', ['$scope', '$filter', function($scope, $filter){
 
-  $scope.addfood = '';
+  $scope.eventDetails = [
+    { eventname: 'Thanksgiving 2016',
+      datestring: 'November 24-26, 2016',
+      location: 'Casey-Warren\'s, Middletown, VA'
+    }
+  ]
 
-  $scope.lowercasefood = function(){
-    return $filter('lowercase')($scope.addfood);
-  };
+  $scope.courses = [
+    { coursename: 'Dinner' },
+    { coursename: 'Libations' },
+    { coursename: 'Appetizers' },
+    { coursename: 'Desserts' }
+  ]
 
-  $scope.characters = 3;
-
-$scope.foods = [
+  $scope.foods = [
     { foodname: 'Turkey',
       chef: 'Charles',
-      course: 'dinner'
+      course: 'Dinner'
     },
     { foodname: 'Green Beans',
       chef: 'Cheryl',
-      course: 'dinner'
+      course: 'Dinner'
     },
     { foodname: 'Sweet Potatos',
       chef: 'Emily',
-      course: 'dinner'
+      course: 'Dinner'
     },
     { foodname: 'Pumpkin Pie',
       chef: 'Pat',
-      course: 'desserts'
+      course: 'Desserts'
     },
     { foodname: 'Mystery Drink',
       chef: 'Les',
-      course: 'libations'
+      course: 'Libations'
     },
     { foodname: 'Beer',
       chef: 'Brandon',
-      course: 'libations'
+      course: 'Libations'
     },
     { foodname: 'Cole Slaw',
       chef: 'Marilyn',
-      course: 'dinner'
+      course: 'Dinner'
     },
     { foodname: 'Rainbow Carrots',
       chef: 'Lacey',
-      course: 'dinner'
+      course: 'Dinner'
     },
     { foodname: 'Hummus',
       chef: 'Cheryl',
-      course: 'appetizers'
+      course: 'Appetizers'
     },
     { foodname: 'Raw veggies',
       chef: 'Cheryl',
-      course: 'appetizers'
+      course: 'Appetizers'
     }
   ];
 

@@ -10,6 +10,10 @@ li {
   margin: 0 auto;
 }
 
+.menu h5 {
+  margin-bottom: 30px;
+}
+
 .menu-form {
   border: 1px solid #ccc;
   text-align: center;
@@ -18,4 +22,8 @@ li {
 
 .menu-form .form-control {
   margin: 10px 0;
+}
+
+.course-select {
+  padding-right: 10px;
 }
