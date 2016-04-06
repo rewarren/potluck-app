@@ -1,0 +1,42 @@
+[
+  { "foodname": "Turkey",
+    "chef": "Charles",
+    "course": "Dinner"
+  },
+  { "foodname": "Green Beans",
+    "chef": "Cheryl",
+    "course": "Dinner"
+  },
+  { "foodname": "Sweet Potatos",
+    "chef": "Emily",
+    "course": "Dinner"
+  },
+  { "foodname": "Pumpkin Pie",
+    "chef": "Pat",
+    "course": "Desserts"
+  },
+  { "foodname": "Mystery Drink",
+    "chef": "Les",
+    "course": "Libations"
+  },
+  { "foodname": "Beer",
+    "chef": "Brandon",
+    "course": "Libations"
+  },
+  { "foodname": "Cole Slaw",
+    "chef": "Marilyn",
+    "course": "Dinner"
+  },
+  { "foodname": "Rainbow Carrots",
+    "chef": "Lacey",
+    "course": "Dinner"
+  },
+  { "foodname": "Hummus",
+    "chef": "Cheryl",
+    "course": "Appetizers"
+  },
+  { "foodname": "Raw veggies",
+    "chef": "Cheryl",
+    "course": "Appetizers"
+  }
+]
