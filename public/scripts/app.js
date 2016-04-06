@@ -1,64 +1,52 @@
-var potluckApp = angular.module('potluckApp', []);
+var potluckApp = angular.module('potluckApp', ['ngRoute']);
 
+potluckApp.config(['$routeProvider', function($routeProvider){
+  $routeProvider
+  .when('/', {
+    templateUrl: 'templates/home.html',
+    controller: 'mainCtrl'
+  })
+  .when('/event', {
+    templateUrl: 'templates/event.html',
+    controller: 'mainCtrl'
+  })
+}]);
 
-potluckApp.controller('mainCtrl', ['$scope', '$filter', function($scope, $filter){
+potluckApp.controller('mainCtrl', ['$scope', 'eventService', '$http', function($scope, eventService, $http){
 
-  $scope.eventDetails = [
-    { eventname: 'Thanksgiving 2016',
-      datestring: 'November 24-26, 2016',
-      location: 'Casey-Warren\'s, Middletown, VA'
-    }
-  ]
+  eventService.getEventDetails(function(response){
+    $scope.eventDetails = response.data
+  })
 
-  $scope.courses = [
-    { coursename: 'Dinner' },
-    { coursename: 'Libations' },
-    { coursename: 'Appetizers' },
-    { coursename: 'Desserts' }
-  ]
+  eventService.getFoods(function(response){
+    $scope.foods = response.data
+  })
 
-  $scope.foods = [
-    { foodname: 'Turkey',
-      chef: 'Charles',
-      course: 'Dinner'
-    },
-    { foodname: 'Green Beans',
-      chef: 'Cheryl',
-      course: 'Dinner'
-    },
-    { foodname: 'Sweet Potatos',
-      chef: 'Emily',
-      course: 'Dinner'
-    },
-    { foodname: 'Pumpkin Pie',
-      chef: 'Pat',
-      course: 'Desserts'
-    },
-    { foodname: 'Mystery Drink',
-      chef: 'Les',
-      course: 'Libations'
-    },
-    { foodname: 'Beer',
-      chef: 'Brandon',
-      course: 'Libations'
-    },
-    { foodname: 'Cole Slaw',
-      chef: 'Marilyn',
-      course: 'Dinner'
-    },
-    { foodname: 'Rainbow Carrots',
-      chef: 'Lacey',
-      course: 'Dinner'
-    },
-    { foodname: 'Hummus',
-      chef: 'Cheryl',
-      course: 'Appetizers'
-    },
-    { foodname: 'Raw veggies',
-      chef: 'Cheryl',
-      course: 'Appetizers'
-    }
-  ];
+  eventService.getCourses(function(response){
+    $scope.courses = response.data
+  })
 
+  $scope.addFoods = function(){
+    var food = [{foodname: "", chef: "", course: ""}]
+    console.log(food)
+    $scope.foods.push(food)
+  }
 
 }]);
+
+potluckApp.service('eventService', function($http){
+  this.getEventDetails = function(callback){
+    $http.get('mock/eventdetails.json')
+    .then(callback)
+  }
+
+  this.getFoods = function(callback){
+    $http.get('mock/foods.json')
+    .then(callback)
+  }
+
+  this.getCourses = function(callback){
+    $http.get('mock/courses.json')
+    .then(callback)
+  }
+})
