@@ -10,101 +10,12 @@
 </head>
 <body>
 
-  <header>
-    <nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">PotLuck</a>
-      </div>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="#"><i class="fa fa-home"></i> Create New Event</a></li>
-        <li><a href="#">Log Out</a></li>
-      </ul>
-    </div>
-    </nav>
-  </header>
-
-  <div class="container">
-
-    <div ng-controller="mainCtrl">
-      <div ng-repeat="detail in eventDetails">
-        <h1>{{detail.eventname}}</h1>
-        <h5>{{detail.datestring}}</h2>
-        <h5>{{detail.location}}</h2>
-      </div>
-
-      <hr/>
-
-      <div class="row">
-        <div class="col-xs-12 col-md-6">
-          <div class="menu">
-          <h3><strong>Menu<strong></h3>
-          <h5>
-            View: <a href="#">Full Menu</a> | <a href="#">Chef's Menu</a>
-          </h5>
-          <h4>Main Course</h4>
-          <ul ng-repeat="food in foods | orderBy: 'chef'" ng-show="food.course === 'Dinner'">
-            <li>{{food.foodname}} - {{food.chef}}
-              <a href="#"> <i class="fa fa-pencil"></i></a>
-            </li>
-          </ul>
-
-          <h4>Libations</h4>
-          <ul ng-repeat="food in foods" ng-show="food.course === 'Libations'">
-            <li>{{food.foodname}} - {{food.chef}}
-              <a href="#"> <i class="fa fa-pencil"></i></a>
-            </li>
-          </ul>
-
-          <h4>Appetizers</h4>
-          <ul ng-repeat="food in foods" ng-show="food.course === 'Appetizers'">
-            <li>{{food.foodname}} - {{food.chef}}
-              <a href="#"> <i class="fa fa-pencil"></i></a>
-            </li>
-          </ul>
-
-          <h4>Dessert</h4>
-          <ul ng-repeat="food in foods" ng-show="food.course === 'Desserts'">
-            <li>{{food.foodname}} - {{food.chef}}
-              <a href="#"> <i class="fa fa-pencil"></i></a>
-            </li>
-          </ul>
-        </div><!-- Menu -->
-      </div> <!-- Left Column -->
-
-        <div class="col-xs-12 col-md-6">
-
-        <form>
-          <div class="form-group menu-form">
-            <h4>Add to menu:</h4>
-            <input type="text" ng-model="foods.foodname" placeholder="food" class="form-control"/>
-            <input type="text" ng-model="foods.chef" placeholder="chef" class="form-control"/>
-            <div class="checkbox">
-              <label ng-repeat="course in courses" class="course-select">
-                <input type="checkbox">{{course.coursename}}</input>
-              </label>
-            </div>
-            <div><h6><a href="#">(edit/add courses)</a></h6></div>
-           <button type="submit" class="btn btn-default">Submit</button>
-          </div> <!-- Menu Form -->
-        </form>
-
-        <div class="note">
-          <h4>Leave a note!</h4>
-
-        </div>
-
-      </div> <!-- Right Column -->
-
-      </div> <!-- food ROW -->
-
-    </div> <!-- mainCtrl -->
-
-  </div>
+<navigation></navigation>
+<div ng-view></div>
 
   <script src="https://code.angularjs.org/1.5.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.js"></script>
   <script src="scripts/app.js"></script>
+  <script src="scripts/directives/navigation.js"></script>
 </body>
 </html>
