@@ -1,3 +1,7 @@
+'use strict';
+
+var angular = require('angular');
+
 angular.module('potluckApp')
 .service('eventService', function($http){
 

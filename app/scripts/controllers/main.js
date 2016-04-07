@@ -1,5 +1,6 @@
-angular.module('potluckApp')
+var angular = require('angular');
 
+angular.module('potluckApp')
 
 .controller('mainCtrl', ['$scope', 'eventService', '$http', function($scope, eventService, $http){
 
