@@ -1,8 +1,7 @@
 <div class="container">
 
   <div ng-controller="mainCtrl">
-    <div ng-repeat="detail in eventDetails">
-      <h1>HELLO!</h1>
+    <div ng-repeat="detail in eventdetails">
       <h1>{{detail.eventname}}</h1>
       <h5>{{detail.datestring}}</h2>
       <h5>{{detail.location}}</h2>
@@ -18,7 +17,7 @@
           View: <a href="#">Full Menu</a> | <a href="#">Chef's Menu</a>
         </h5>
         <h4>Main Course</h4>
-        <ul ng-repeat="food in foods | orderBy: 'chef'" ng-show="food.course === 'Dinner'">
+        <ul ng-repeat="food in foods" ng-show="food.course === 'Dinner'">
           <li>{{food.foodname}} - {{food.chef}}
             <a href="#"> </a>
           </li>
@@ -34,7 +33,7 @@
         <h4>Appetizers</h4>
         <ul ng-repeat="food in foods" ng-show="food.course === 'Appetizers'">
           <li>{{food.foodname}} - {{food.chef}}
-            <a href="#"> </a>
+            <i class="fa fa-pencil" ng-click="editItem()"></i>
           </li>
         </ul>
 
@@ -55,13 +54,13 @@
           <input type="text" ng-model="foods.foodname" placeholder="food" class="form-control"/>
           <input type="text" ng-model="foods.chef" placeholder="chef" class="form-control"/>
           <input type="text" ng-model="foods.course" placeholder="course" class="form-control"/>
-          <div class="checkbox">
-            <label ng-repeat="course in courses" class="course-select">
-              <input type="checkbox">{{course.coursename}}</input>
+          <!-- <div class="checkbox">
+            <label ng-repeat="food in foods" class="course-select">
+              <input type="checkbox">{{food.course}}</input>
             </label>
-          </div>
-          <div><h6><a href="#">(edit/add courses)</a></h6></div>
-         <button type="submit" class="btn btn-default" ng-click="addFoods()">Submit</button>
+          </div> -->
+          <!-- <div><h6><a href="#">(edit/add courses)</a></h6></div> -->
+         <button type="submit" class="btn btn-default" ng-click="addFoods()" ng-click="reset(form)">Submit</button>
         </div> <!-- Menu Form -->
       </form>
 
